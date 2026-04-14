@@ -38,9 +38,4 @@ public class TC_LP_02_HeroSectionAndCTAs extends BaseTest {
 
     }
 
-    @Test
-    @DisplayName("LP-008 | Content is present and visible")
-    void LP_008_contentIsPresentAndVisible() {
-
-    }
 }
