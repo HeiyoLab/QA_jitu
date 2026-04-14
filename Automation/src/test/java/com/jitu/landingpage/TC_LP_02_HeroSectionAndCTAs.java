@@ -4,6 +4,8 @@ import com.jitu.common.BaseTest;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions; // [ADDED] needed for explicit wait conditions
+import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("TC-LP-02 | Hero section and CTAs")
@@ -15,27 +17,45 @@ public class TC_LP_02_HeroSectionAndCTAs extends BaseTest {
     }
 
     @Test
-    @DisplayName("LP-004 | Hero headline visible")
-    void LP_004_heroHeadlineVisible() {
-
+    @DisplayName("LP-006 | Hero headline visible")
+    void LP_006_heroHeadlineVisible(){
+        // [CHANGED] wait until element is visible before reading text (page renders content dynamically)
+        WebElement heroHeadline = wait.until(
+            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h1[class*='_heroTitle']"))
+        );
+        assertTrue(heroHeadline.getText().contains("Write"));
     }
 
     @Test
-    @DisplayName("LP-005 | Hero subheading is present and visible")
-    void LP_005_heroSubheadingIsPresentAndVisible() {
-
+    @DisplayName("LP-007 | Hero subheading is present and visible")
+    void LP_007_heroSubheadingIsPresentAndVisible() {
+        // [CHANGED] wait until element is visible before reading text (page renders content dynamically)
+        WebElement Subhero = wait.until(
+            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p[class*='_heroTagline']"))
+        );
+        assertTrue(Subhero.getText().contains("From"));
     }
 
     @Test
-    @DisplayName("LP-006 | Prime CTA is present and visible")
-    void LP_006_primeCTAIsPresentAndVisible() {
-
+    @DisplayName("LP-008 | Prime CTA is present and visible")
+    void LP_008_primeCTAIsPresentAndVisible() {
+        // [CHANGED] wait until button is visible before asserting display state and text
+        WebElement btnPrime = wait.until(
+            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='/dashboard']"))
+        );
+        assertTrue(btnPrime.isDisplayed());
+        assertEquals("Start generating", btnPrime.getText());
     }
 
     @Test
-    @DisplayName("LP-007 | Secondary CTA is present and visible")
-    void LP_007_secondaryCTAIsPresentAndVisible() {
-
+    @DisplayName("LP-009 | Secondary CTA is present and visible")
+    void LP_009_secondaryCTAIsPresentAndVisible() {
+        // [CHANGED] wait until button is visible before asserting display state and text
+        WebElement btnSecondary = wait.until(
+            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='#how']"))
+        );
+        assertTrue(btnSecondary.isDisplayed());
+        assertEquals("See how it works", btnSecondary.getText());
     }
 
 }
