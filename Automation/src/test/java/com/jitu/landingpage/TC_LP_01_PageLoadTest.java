@@ -34,4 +34,19 @@ public class TC_LP_01_PageLoadTest extends BaseTest {
         WebElement logo = driver.findElement(By.cssSelector("a._logo_236fd_14"));
         assertTrue(logo.isDisplayed());
     }
+
+    @Test
+    @DisplayName("LP-004 | Favicon present")
+    void LP_004_FaviconISPresent(){
+        WebElement favicon = driver.findElement(By.cssSelector("link[rel='icon']"));
+        assertNotNull(favicon);
+        assertFalse(favicon.getAttribute("href").isBlank());
+    }
+
+    @Test
+    @DisplayName("LP-005 | Primary language is set to English ")
+    void LP_005_PrimaryLanguangeIsEng (){
+        WebElement language = driver.findElement(By.tagName("html"));
+        assertEquals("en", language.getAttribute("lang"));
+    }
 }
