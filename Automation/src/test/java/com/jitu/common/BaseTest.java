@@ -4,11 +4,13 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BaseTest {
 
     protected static WebDriver driver;
+    protected static WebDriverWait wait; 
 
     @BeforeAll
     static void launchBrowser() {
@@ -19,6 +21,7 @@ public class BaseTest {
 
         driver = new ChromeDriver(options);
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10)); 
     }
 
     @AfterAll
