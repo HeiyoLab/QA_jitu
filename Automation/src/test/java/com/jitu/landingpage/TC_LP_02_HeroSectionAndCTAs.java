@@ -18,10 +18,9 @@ public class TC_LP_02_HeroSectionAndCTAs extends BaseTest {
 
     @Test
     @DisplayName("LP-006 | Hero headline visible")
-    void LP_006_heroHeadlineVisible(){
+    void LP_006_heroHeadlineVisible() {
         WebElement heroHeadline = wait.until(
-            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h1[class*='_heroTitle']"))
-        );
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h1[class*='_heroTitle']")));
         assertTrue(heroHeadline.getText().contains("Write"));
     }
 
@@ -29,8 +28,7 @@ public class TC_LP_02_HeroSectionAndCTAs extends BaseTest {
     @DisplayName("LP-007 | Hero subheading is present and visible")
     void LP_007_heroSubheadingIsPresentAndVisible() {
         WebElement Subhero = wait.until(
-            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p[class*='_heroTagline']"))
-        );
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p[class*='_heroTagline']")));
         assertTrue(Subhero.getText().contains("From"));
     }
 
@@ -38,8 +36,7 @@ public class TC_LP_02_HeroSectionAndCTAs extends BaseTest {
     @DisplayName("LP-008 | Prime CTA is present and visible")
     void LP_008_primeCTAIsPresentAndVisible() {
         WebElement btnPrime = wait.until(
-            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='/dashboard']"))
-        );
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='/dashboard']")));
         assertTrue(btnPrime.isDisplayed());
         assertEquals("Start generating", btnPrime.getText());
     }
@@ -48,8 +45,7 @@ public class TC_LP_02_HeroSectionAndCTAs extends BaseTest {
     @DisplayName("LP-009 | Secondary CTA is present and visible")
     void LP_009_secondaryCTAIsPresentAndVisible() {
         WebElement btnSecondary = wait.until(
-            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='#how']"))
-        );
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='#how']")));
         assertTrue(btnSecondary.isDisplayed());
         assertEquals("See how it works", btnSecondary.getText());
     }
