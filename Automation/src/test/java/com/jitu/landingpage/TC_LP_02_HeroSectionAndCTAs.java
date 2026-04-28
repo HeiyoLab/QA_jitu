@@ -5,7 +5,6 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions; // [ADDED] needed for explicit wait conditions
-import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("TC-LP-02 | Hero section and CTAs")
@@ -49,3 +48,4 @@ public class TC_LP_02_HeroSectionAndCTAs extends BaseTest {
         assertTrue(btnSecondary.isDisplayed());
         assertEquals("See how it works", btnSecondary.getText());
     }
+}
